@@ -12,7 +12,6 @@ class Machine:
         print("Coffee: ", self.coffee)
         print("Money: ", self.money)
 
-
     def take_order(self):
         order = input("What would you like to order? \nMenu:\n-Latte\n-Espresso\n-Cappuccino")
 
@@ -59,48 +58,41 @@ class Machine:
             return "Your change is: " + str(money)
         return "You do not have enough money"
 
+    def calculator(self, cost):
+        q = input("How many quarters?: ")
+        d = input("How many dimes?: ")
+        n = input("How many nickels?: ")
+        p = input("How many pennies?: ")
+        return "Here's your espresso! " + self.cost(q, d, n, p, cost)
+
     def make_esp(self):
         cost = 2.5
         water = 100
         milk = 50
-        coffee = 15
-        ing = self.ingredients(water, milk, coffee)
+        cof = 15
+        ing = self.ingredients(water, milk, cof)
         if ing:
-            q = input("How many quarters?: ")
-            d = input("How many dimes?: ")
-            n = input("How many nickels?: ")
-            p = input("How many pennies?: ")
-            return "Here's your espresso! " + self.cost(q, d, n, p, cost)
-
+            return self.calculator(cost)
         return ing
 
     def make_cap(self):
         cost = 2.5
         water = 100
         milk = 50
-        coffee = 15
-        ing = self.ingredients(water, milk, coffee)
+        cof = 15
+        ing = self.ingredients(water, milk, cof)
         if ing:
-            q = input("How many quarters?: ")
-            d = input("How many dimes?: ")
-            n = input("How many nickels?: ")
-            p = input("How many pennies?: ")
-            return "Here's your cappuccino! " + self.cost(q, d, n, p, cost)
-
+            return self.calculator(cost)
         return ing
 
     def make_lat(self):
         cost = 2.5
         water = 100
         milk = 50
-        coffee = 15
-        ing = self.ingredients(water, milk, coffee)
+        cof = 15
+        ing = self.ingredients(water, milk, cof)
         if ing:
-            q = input("How many quarters?: ")
-            d = input("How many dimes?: ")
-            n = input("How many nickels?: ")
-            p = input("How many pennies?: ")
-            return "Here's your latte! " + self.cost(q, d, n, p, cost)
+            return self.calculator(cost)
 
         return ing
 
